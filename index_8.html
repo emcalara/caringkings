@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caring Kings</title>
+<!-- home-screen name + icon -->
+<meta name="apple-mobile-web-app-title" content="Caring Kings">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#0d2340">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  html,body{margin:0;height:100%;background:#faf8f4;font-family:system-ui,sans-serif}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0;padding-top:env(safe-area-inset-top);box-sizing:border-box;background:#faf8f4}
+  .splash{position:fixed;inset:0;display:grid;place-items:center;text-align:center;color:#0d2340}
+  .splash img{width:120px;height:120px;border-radius:28px}
+  .splash a{color:#c8922a;font-weight:700}
+</style>
+</head>
+<body>
+<div class="splash"><div><img src="icon-512.png" alt=""><p><b>Caring Kings</b><br>Caregiver Portal · Loading…</p>
+  <p style="font-size:13px">Taking too long? <a id="direct" href="#">Open it here</a></p></div></div>
+<script>
+  /* Your Caring Kings web app link (Deploy → Manage deployments → Web app URL).
+     If you ever make a NEW deployment with a new link, paste it here. */
+  var APP_URL = 'https://script.google.com/macros/s/AKfycbyz5k5F-Y0ecLrnRtbN9A_YxutrCry-14hth7HgLtU8Pz8Kxm67jjjXtcDtacbxHpBM/exec';
+
+  /* 'frame'    = the portal opens inside this page (feels like a real app, recommended)
+     'redirect' = jumps straight to Google's page (use this if photo upload or anything misbehaves) */
+  var MODE = 'frame';
+
+  document.getElementById('direct').href = APP_URL;
+  if (MODE === 'redirect') location.replace(APP_URL);
+  else {
+    var f = document.createElement('iframe');
+    f.src = APP_URL; f.title = 'Caring Kings Caregiver Portal';
+    f.allow = 'camera; clipboard-write';
+    document.body.appendChild(f);
+  }
+</script>
+</body>
+</html>
